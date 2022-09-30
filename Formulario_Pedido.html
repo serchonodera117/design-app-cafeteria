@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Datos de compra</title>
+</head>
+
+<body style="margin-left: 1%; margin-right:1%">
+    <header id="miHeader"> 
+        <img id="imgNegocio" src="x">
+       
+        <div id="tituloPago" style="z-index: 20; position:absolute; top: 3%; margin-left: 40%; margin-right: 10%;"> 
+            <h2 >Datos de compra</h2>
+        </div>
+    </header>
+    <div id="cancelarCompra">
+        <button onclick="cancelar()" type="button" class="btn-close" aria-label="Close">
+        </button>
+       </div>
+   
+
+    <div id="cuerpo_pago" class="continer">
+        <div class="row textoCompra">  <!-----------Contenido de la orden-->
+            <h2>Orden</h2>
+        </div>
+        <div class="row"> 
+               <div class="col">
+                  <img id="imgCompra" src="x" style="width: 75%; height: 80%; border-radius: 5%; margin: 1%;">
+               </div>
+               <div class="col" >
+                 <br> 
+                 <h3 id="compra" style="text-align:center"></h3>
+                  <h4 id="negocio" style="text-align:center">xxx</h4>
+                  <br>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Agregar especificación</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí especificaciones que gustes agregar a tu orden. . ."></textarea>
+                  </div>
+                </div>
+        </div>
+
+
+        <div class="row textoCompra">  <!-----------datos del comprador-->
+            <h2>datos del comprador</h2>
+        </div>
+        <div class="row"> 
+               <div class="row" style="margin: 3%">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Nombre</label>
+                       <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Nombre y apellidos">
+                       </div>
+                </div>
+
+                <div class="row" style="margin: 3%">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Teléfono</label>
+                     <div class="col-md-6">
+                      <input type="number" class="form-control" placeholder="+ 52 --- --- ----">
+                     </div>
+               </div>
+
+               <div class="row" style="margin: 3%">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Hora de recolección</label>
+                  <div class="col-md-6">
+                   <input type="time" class="form-control">
+                 </div>
+              </div>
+        </div>
+
+
+
+        <div class="row textoCompra">  <!-----------datos tipo de pagor-->
+            <h2>Metodo de pago</h2>
+        </div>
+        <div class="row" style="margin-top:3%; margin-bottom: 3%"> 
+          <div style="margin-left:5%">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Tarjeta
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Efectivo
+                </label>
+              </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:3%; margin-bottom: 3%">
+            <hr cstyle="height:2px; border-width:0; color:gray;background-color:gray;">
+        </div>
+        <div class="row" style="margin-bottom: 15%; margin-top: 5%">
+         <br>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="button" class="btn btn-primary">Finalizar</button>
+          </div>
+        </div>
+    </div>   
+
+    <script>
+        let nombreNegocio = document.getElementById("negocio");
+        let compra = document.getElementById("compra");
+        let imgCompra = document.getElementById("imgCompra");
+        let imgNegocio = document.getElementById("imgNegocio");
+
+        let imagenNegocio = localStorage.getItem("pagina_foto")
+        let nombre = localStorage.getItem("nombreCompra")
+        let negocio = localStorage.getItem("nombreNegocio")
+        let imagen = localStorage.getItem("imagenCompra")
+
+        compra.textContent = nombre
+        nombreNegocio.textContent = negocio
+        
+        imgCompra.src = imagen
+        imgNegocio.src = imagenNegocio
+
+        function cancelar(){
+            window.history.back()
+        } 
+    </script>
+</body>
+</html>

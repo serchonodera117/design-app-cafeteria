@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="Estilo.css">
+</head>
+
+<body id="main">
+<!--Header-->    
+    <header id="miHeader">
+        <img height="250px" width="100%" style="object-fit: cover;" src="imagenes/Plaza_servicios.jpg">
+    </header>
+
+ <!--Barra de busqueda-->
+    <div class="row" id="busqueda_barra">
+            <div class="col-auto">
+                <input type="search" id="inputPassword6"class="form-control" placeholder="Buscar tienda. . ." aria-describedby="passwordHelpInline">
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-light" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                      </svg>
+                </button>
+            </div>
+    </div>
+<!--Botón flotante para ver pedidos desde la vista del cliente-->
+<button id="botonFlotante" onclick="mostrarMisPedidos()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layout-text-window-reverse" viewBox="0 0 16 16">
+    <path d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
+    <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z"/>
+  </svg>
+  mis pedidos
+</button>
+
+<!--cuerpo de la pagina-->
+  <div class="col" id="cuerpo-container">
+<!--Renglon 1-->
+     <div class="row">
+        <div class="card" style="width: 40rem; margin:1%;">
+            <img height="300px" src="https://cdn5.f-cdn.com/contestentries/486868/14016951/575dd6b7165f3_thumb900.jpg" style="object-fit: cover;" width="100%">
+            <div class="card-body">
+              <h3 class="card-title" style="text-align: center">Snacks</h3>
+              <p class="card-text">Comida rápida, preparada a la brevedad a un precio razonable.</p>
+              <a onclick="cambiarPagina(0)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                Ir a la tienda  
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="card" style="width: 40rem; margin:1%;">
+            <img height="300px" src="https://images.vexels.com/media/users/3/124927/raw/513dff2240b59baa3bf127a565b7dd65-conjunto-de-ilustracion-de-batido.jpg" style="object-fit: cover;" width="100%">
+            <div class="card-body">
+              <h3 class="card-title" style="text-align: center">Batidos y Malteadas</h3>
+              <p class="card-text">Bebidas de todo tipo</p>
+              <a onclick="cambiarPagina(1)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                Ir a la tienda  
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+              </a>
+            </div>
+          </div>
+     </div> 
+
+<!--Renglon 2-->
+     <div class="row">
+        <div class="card" style="width: 40rem; margin:1%;">
+            <img height="300px" src="https://www.zarla.com/images/zarla-ecampia-1x1-2400x2400-20220223-394y8hhr99drtt3wft7h.png?crop=1:1,smart&width=250&dpr=2" style="object-fit: cover;" width="100%">
+            <div class="card-body">
+              <h3 class="card-title" style="text-align: center">Green Food</h3>
+              <p class="card-text">Comida rica y saludable, creada por especialistas en el área</p>
+              <a onclick="cambiarPagina(2)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                Ir a la tienda  
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="card" style="width: 40rem; margin:1%;">
+            <img height="300px" src="https://economia.org/anexo/Papeleria.jpg"   style="object-fit: cover;" width="100%">
+            <div class="card-body">
+              <h3 class="card-title" style="text-align: center">Papelería</h3>
+              <p class="card-text">Papelería de servicios universitarios</p>
+              <a onclick="cambiarPagina(3)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                Ir a la tienda  
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+              </a>
+            </div>
+          </div>
+     </div>
+
+
+<!--Renglon 3--> 
+<div class="row">
+    <div class="card" style="width: 40rem; margin:1%;">
+        <img height="300px" src="https://www.comunidadbaratz.com/wp-content/uploads/La-biblioteca-es-inclusion-social-e-igualdad-de-oportunidades.jpg" style="object-fit: cover;" width="100%">
+        <div class="card-body">
+          <h3 class="card-title" style="text-align: center">Biblioteca</h3>
+          <p class="card-text">Venta y prestamo de libros</p>
+          <a onclick="cambiarPagina(4)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+            Ir a la tienda  
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+              </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 40rem; margin:1%;">
+        <img height="300px" src="https://media.gq.com.mx/photos/5be9f6483ff3ea4abe476188/master/pass/bravo_loncheria__5258.jpg" style="object-fit: cover;" width="100%">
+        <div class="card-body">
+          <h3 class="card-title" style="text-align: center">Lonchería</h3>
+          <p class="card-text">Comida casera</p>
+          <a onclick="cambiarPagina(5)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+            Ir a la tienda  
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+              </svg>
+          </a>
+        </div>
+      </div>
+ </div>
+  </div>
+
+
+             <!--Modal de detalles de producto -->
+<div class="modal" id="modalPedidos" style="display: none;">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titulo_modal">Mis pedidos</h5>
+                  <button onclick="cerrarPedidos()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+           <div class="contenedorPedidos">
+               <div class="row pedidos">
+                  <div class="col-md-4">
+                   <img class="imagenPedido" src="https://assets.unileversolutions.com/recipes-v2/94527.jpg">
+                  </div>
+                  <div class="col-md-6">
+                   <p><b>Torta</b></p>
+                     <p>Especificaciones:</p>
+                        <div style="background-color: rgb(248, 239, 239); width: 100; border-radius: 5%">
+                          <p>Torta de jamón con jitomate, cebolla y mayonesa como adereso, poca lechuga, sin jalapeño</p>
+                         </div>
+                     
+                  <div class="row" style="margin-top:3%; margin-bottom: 3%">
+                      <hr cstyle="height:2px; border-width:0; color:gray;background-color:gray;">
+                   </div>                                             
+                         <p>Hora de recogida: 10:45a.m.</p>
+                        <p><b>Estado:</b> En preparación</p>
+                        <p><b>Precio: $40</b></p>
+                   </div>
+                  </div>
+                                                  
+              <div class="row pedidos">
+                  <div class="col-md-4">
+                        <img class="imagenPedido" src="https://image.shutterstock.com/image-photo/frappuccino-take-away-cup-straw-260nw-301410545.jpg">
+                  </div>
+                 <div class="col-md-6">
+                        <p><b>Frapuccino</b></p>
+                              <p>Especificaciones:</p>
+                              <div style="background-color: rgb(248, 239, 239); width: 100; border-radius: 5%">
+                                  <p>Frapuccino de vainilla con crema pastelera</p>
+                              </div>
+                          <div class="row" style="margin-top:3%; margin-bottom: 3%">
+                          <hr cstyle="height:2px; border-width:0; color:gray;background-color:gray;">
+                          </div>                                            
+                            <p>Hora de recogida: 10:45a.m.</p>
+                             <p><b>Estado:</b> Listo</p>
+                             <p><b>Precio:  $25</b></p>
+                   </div>
+               </div>
+                                                  
+                                                  
+               <div class="row pedidos">
+                   <div class="col-md-4">
+                      <img class="imagenPedido" src="https://http2.mlstatic.com/D_NQ_NP_701911-MLM44471644249_012021-O.jpg">
+                   </div>
+                   <div class="col-md-6">
+                          <p><b>Libreta del rayo MQueen</b></p>
+                          <p>Especificaciones:</p>
+                           <div style="background-color: rgb(248, 239, 239); width: 100; border-radius: 5%">
+                               <p>una libreta del poderosisimo rayo maqueen</p>
+                            </div>
+                          <div class="row" style="margin-top:3%; margin-bottom: 3%">
+                              <hr cstyle="height:2px; border-width:0; color:gray;background-color:gray;">
+                          </div>                                          
+                             <p>Hora de recogida: 2:45p.m.</p>
+                            <p><b>Estado:</b> Listo</p>
+                            <p><b>Precio:  $165</b></p>
+                   </div>
+               </div>
+             </div>
+           </div>
+         </div>
+      </div>
+
+
+   <script>
+       let arrLinksImg = ["https://cdn5.f-cdn.com/contestentries/486868/14016951/575dd6b7165f3_thumb900.jpg",
+    "https://images.vexels.com/media/users/3/124927/raw/513dff2240b59baa3bf127a565b7dd65-conjunto-de-ilustracion-de-batido.jpg",
+    "https://www.zarla.com/images/zarla-ecampia-1x1-2400x2400-20220223-394y8hhr99drtt3wft7h.png?crop=1:1,smart&width=250&dpr=2",
+    "https://economia.org/anexo/Papeleria.jpg",
+    "https://www.comunidadbaratz.com/wp-content/uploads/La-biblioteca-es-inclusion-social-e-igualdad-de-oportunidades.jpg",
+    "https://media.gq.com.mx/photos/5be9f6483ff3ea4abe476188/master/pass/bravo_loncheria__5258.jpg"]
+
+      let arrNombres = ["Snacks","Batidos y Malteadas","Green Food","Papelería","Bliblioteca","Lonchería"]
+   
+    function cambiarPagina(index){
+       localStorage.setItem("pagina_nombre", arrNombres[index])
+        localStorage.setItem("pagina_foto", arrLinksImg[index])
+        window.location = "SelectedPage.html"
+    }
+
+    function mostrarMisPedidos(){
+          let pedidos = document.getElementById("modalPedidos")
+          pedidos.style.display = "block"
+        }
+        function cerrarPedidos(){
+          let pedidos = document.getElementById("modalPedidos")
+          pedidos.style.display = "none"
+        }
+
+   </script>
+</body>
+</html>

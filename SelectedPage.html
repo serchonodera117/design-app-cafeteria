@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Negocio seleccionado</title>
+</head>
+<body>
+    <!--Header-->    
+    <header id="miHeader">
+        <img id="miPage" height="250px" width="100%" style="object-fit: cover;" src="imagenes/Plaza_servicios.jpg">
+    </header>
+<!--Barra de busqueda-->
+<div class="row" id="busqueda_barra">
+    <div class="col-auto">
+        <input type="search" id="inputPassword6"class="form-control" placeholder="Buscar producto. . ." aria-describedby="passwordHelpInline">
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-light" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+        </button>
+    </div>
+</div>
+<!--Nombre de la pagina seleccionada-->
+<div id="nombrePagina">
+  <h3>
+    <b>Nombre</b>
+  </h3>
+</div>
+
+<!--Volver a home-->
+<button id="volver" class="btn btn-light" onclick="volverHome()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg>
+       Volver
+</button>
+
+<!--Botón flotante para ver pedidos desde la vista del cliente-->
+<button id="botonFlotante" onclick="mostrarMisPedidos()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layout-text-window-reverse" viewBox="0 0 16 16">
+    <path d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
+    <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z"/>
+  </svg>
+  mis pedidos
+</button>
+
+<div class="col" id="cuerpo-container">
+    <!--Renglon 1-->
+         <div class="row" style="margin-left: 5%; margin-right: 5%;">
+            <div class="card" style="width: 40rem; margin:1%;">
+                <img height="300px" src="https://www.elespectador.com/resizer/pzRlaeCY-iMH6P3PhTk6REUC-xw=/1200x675/filters:format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/N5EPKUWMIVH4RCPNDM7OP5OKQQ.jpeg" style="object-fit: cover;" width="100%">
+                <div class="card-body">
+                  <h3 class="card-title" style="text-align: center">Hamburguesa con papas</h3>
+                  <p class="card-text">Combo de hamburguesa con papas.</p><p><b>$35</b></p>
+                  <a onclick="mostrarModal(0)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                    Ver producto  
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                      </svg>
+                  </a>
+                </div>
+              </div>
+    
+              <div class="card" style="width: 40rem; margin:1%;">
+                <img height="300px" src="https://www.clarin.com/img/2022/01/05/kBr7P45oY_1256x620__2.jpg" style="object-fit: cover;" width="100%">
+                <div class="card-body">
+                  <h3 class="card-title" style="text-align: center">Café Frapuccino</h3>
+                  <p class="card-text">Café frapuccino con hielo molido.</p><p><b>$25</b></p>
+                  <a onclick="mostrarModal(1)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                    Ver producto  
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                      </svg>
+                  </a>
+                </div>
+              </div>
+         </div> 
+    
+    <!--Renglon 2-->
+         <div class="row" style="margin-left: 5%; margin-right: 5%;">
+            <div class="card" style="width: 40rem; margin:1%;">
+                <img height="300px" src="https://images.aws.nestle.recipes/resized/84e720e8bc62d59c69924ba55da2b810_ensalada_de_pollo_1_1200_600.jpg" style="object-fit: cover;" width="100%">
+                <div class="card-body">
+                  <h3 class="card-title" style="text-align: center">Ensalada de pollo</h3>
+                  <p class="card-text">Ensalada con pedazos de pollo cocido</p><p><b>$65</b></p>
+                  <a onclick="mostrarModal(2)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                    Ver producto 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                      </svg>
+                  </a>
+                </div>
+              </div>
+    
+              <div class="card" style="width: 40rem; margin:1%;">
+                <img height="300px" src="https://http2.mlstatic.com/D_NQ_NP_701911-MLM44471644249_012021-O.jpg"   style="object-fit: cover;" width="100%">
+                <div class="card-body">
+                  <h3 class="card-title" style="text-align: center">Libreta del rayo MQueen</h3>
+                  <p class="card-text">libreta de cuadro de 100 hojas</p><p><b>$165</b></p>
+                  <a onclick="mostrarModal(3)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                    Ver producto 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                      </svg>
+                  </a>
+                </div>
+              </div>
+         </div>
+    
+    
+    <!--Renglon 3--> 
+    <div class="row" style="margin-left: 5%; margin-right: 5%;">
+        <div class="card" style="width: 40rem; margin:1%;">
+            <img height="300px" src="https://www.elsotano.com/imagenes_grandes/9780241/978024150112.JPG" style="object-fit: cover;" width="100%">
+            <div class="card-body">
+              <h3 class="card-title" style="text-align: center">el libro de la física</h3>
+              <p class="card-text">Libro introductorio a la física teórica</p><p><b>$800</b></p> 
+              <a onclick="mostrarModal(4)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                Ver producto 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                      </svg>
+              </a>
+            </div>
+          </div>
+    
+          <div class="card" style="width: 40rem; margin:1%;">
+            <img height="300px" src="https://images.aws.nestle.recipes/resized/897a433ffcccdabf0482421576ed7d4c_TORTA_DE_BISTEC_TOREADA_-_MAGGI_TOREADO_150_1200_600.jpg" style="object-fit: cover;" width="100%">
+            <div class="card-body">
+              <h3 class="card-title" style="text-align: center">Torta de pechuga de pavo</h3>
+              <p class="card-text">Torta casera</p><p><b>$40</b></p> 
+              <a onclick="mostrarModal(5)" class="btn btn-primary" style="float: right; margin-right: 3%;">
+                Ver producto 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                      </svg>
+              </a>
+            </div>
+          </div>
+     </div>
+      </div>
+
+                                                <!--Modal de detalles de producto -->
+<div class="modal" id="mimodal" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="titulo_modal">Modal title</h5>
+          <button onclick="cerrarModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img height="200px" id="modal-imagen" width="100%" style="object-fit: cover;"  src="https://colorazul.top/wp-content/uploads/2021/06/azul-electrico-1024x769.jpg">
+          <p id="modal-descripcion">jasjajsjs</p>
+          <p><b id="modal-precio">precio</b></p>
+        </div>
+        <div class="modal-footer">
+          <button onclick="cerrarModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button onclick="irFormularioCompra()" type="button" class="btn btn-primary">Comprar 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-square" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                <path d="M5.795 12.456A.5.5 0 0 1 5.5 12V4a.5.5 0 0 1 .832-.374l4.5 4a.5.5 0 0 1 0 .748l-4.5 4a.5.5 0 0 1-.537.082z"/>
+              </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+                                                  <!--Modal de detalles de producto -->
+<div class="modal" id="modalPedidos" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titulo_modal">Mis pedidos</h5>
+        <button onclick="cerrarPedidos()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="contenedorPedidos">
+             <div class="row pedidos">
+               <div class="col-md-4">
+                 <img class="imagenPedido" src="https://assets.unileversolutions.com/recipes-v2/94527.jpg">
+               </div>
+               <div class="col-md-6">
+                <p><b>Torta</b></p>
+                <p>Especificaciones:</p>
+                  <div style="background-color: rgb(248, 239, 239); width: 100; border-radius: 5%">
+                    <p>Torta de jamón con jitomate, cebolla y mayonesa como adereso, poca lechuga, sin jalapeño</p>
+                  </div>
+                  <div class="row" style="margin-top:3%; margin-bottom: 3%">
+                    <hr cstyle="height:2px; border-width:0; color:gray;background-color:gray;">
+                </div> 
+                <p>Hora de recogida: 10:45a.m.</p>
+                 <p><b>Estado:</b> En preparación</p>
+                <p><b>Precio: $40</b></p>
+              </div>
+             </div>
+
+             <div class="row pedidos">
+              <div class="col-md-4">
+                <img class="imagenPedido" src="https://image.shutterstock.com/image-photo/frappuccino-take-away-cup-straw-260nw-301410545.jpg">
+              </div>
+              <div class="col-md-6">
+               <p><b>Frapuccino</b></p>
+               <p>Especificaciones:</p>
+                 <div style="background-color: rgb(248, 239, 239); width: 100; border-radius: 5%">
+                   <p>Frapuccino de vainilla con crema pastelera</p>
+                 </div>
+                 <div class="row" style="margin-top:3%; margin-bottom: 3%">
+                  <hr cstyle="height:2px; border-width:0; color:gray;background-color:gray;">
+              </div>
+               <p>Hora de recogida: 10:45a.m.</p>
+                <p><b>Estado:</b> Listo</p>
+               <p><b>Precio:  $25</b></p>
+             </div>
+            </div>
+
+
+            <div class="row pedidos">
+              <div class="col-md-4">
+                <img class="imagenPedido" src="https://http2.mlstatic.com/D_NQ_NP_701911-MLM44471644249_012021-O.jpg">
+              </div>
+              <div class="col-md-6">
+               <p><b>Libreta del rayo MQueen</b></p>
+               <p>Especificaciones:</p>
+                 <div style="background-color: rgb(248, 239, 239); width: 100; border-radius: 5%">
+                   <p>una libreta del poderosisimo rayo maqueen</p>
+                 </div>
+              <div class="row" style="margin-top:3%; margin-bottom: 3%">
+                  <hr cstyle="height:2px; border-width:0; color:gray;background-color:gray;">
+              </div>
+               <p>Hora de recogida: 2:45 p.m.</p>
+                <p><b>Estado:</b> Listo</p>
+               <p><b>Precio:  $165</b></p>
+             </div>
+            </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+    <script>
+        let page = document.getElementById("miPage")
+        let namePage = document.getElementById("nombrePagina")
+        let name = localStorage.getItem("pagina_nombre")
+        let url = localStorage.getItem("pagina_foto")
+
+        let indiceCompra;
+        page.src= url
+        namePage.innerHTML = `<h3>
+                                <b>${name}</b>
+                                </h3>`
+
+        let urlArrIMG = ["https://www.elespectador.com/resizer/pzRlaeCY-iMH6P3PhTk6REUC-xw=/1200x675/filters:format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/N5EPKUWMIVH4RCPNDM7OP5OKQQ.jpeg",
+        "https://www.clarin.com/img/2022/01/05/kBr7P45oY_1256x620__2.jpg",
+        "https://images.aws.nestle.recipes/resized/84e720e8bc62d59c69924ba55da2b810_ensalada_de_pollo_1_1200_600.jpg",
+        "https://http2.mlstatic.com/D_NQ_NP_701911-MLM44471644249_012021-O.jpg",
+        "https://www.elsotano.com/imagenes_grandes/9780241/978024150112.JPG",
+        "https://images.aws.nestle.recipes/resized/897a433ffcccdabf0482421576ed7d4c_TORTA_DE_BISTEC_TOREADA_-_MAGGI_TOREADO_150_1200_600.jpg"]
+        
+        let arrayNombres = ["Hamburguesa con papas","Café Frapuccino","Ensalada de pollo",
+               "Libreta del rayo MQueen","El libro de la fisica","Torta de pechuga de pavo"]
+     
+        let arrayDescripciones = ["Combo de hamburguesa doble con papas y queso, por 35 pesos", "Café Frapuccino con sorbetes de caramelo y chocolate a 25 pesos",
+               "Ensalada de pollo cocido con jitomate lechuga y aderezos al gusto por 65 pesos", "Libreta del rayo mqueen con pasta solida y 100 hojas por 165$",
+               "Libro de introducción a la física teórica 1, por 800 pesos", "Torta de pechuga de pavo con pan tostado y aderezos al gusto por  40 pesos"]
+        
+        let arrayPrecios = ["$35","$25","65$","165$","$800","$40"]       
+        function volverHome(){
+            window.history.back();
+        }
+
+        function mostrarModal(index){
+            let modal = document.getElementById("mimodal")
+            modal.style.display = "block";
+
+            let nombre = document.getElementById("titulo_modal")
+            nombre.textContent = arrayNombres[index].toString()
+
+            let imagen = document.getElementById("modal-imagen")
+            imagen.src = urlArrIMG[index]
+
+            let descripcion = document.getElementById("modal-descripcion")
+            descripcion.textContent = arrayDescripciones[index].toString()
+
+            let precio = document.getElementById("modal-precio")
+            precio.textContent = arrayPrecios[index].toString()
+
+            indiceCompra = index
+        }
+        function cerrarModal(){
+            let modal = document.getElementById("mimodal")
+            modal.style.display = "none";
+        }
+
+        function irFormularioCompra(){
+          localStorage.setItem("nombreCompra", arrayNombres[indiceCompra])
+          localStorage.setItem("imagenCompra", urlArrIMG[indiceCompra])
+          localStorage.setItem("nombreNegocio", name)
+          window.location = "Formulario_Pedido.html"
+
+        }
+
+        function mostrarMisPedidos(){
+          let pedidos = document.getElementById("modalPedidos")
+          pedidos.style.display = "block"
+        }
+        function cerrarPedidos(){
+          let pedidos = document.getElementById("modalPedidos")
+          pedidos.style.display = "none"
+        }
+
+    </script>
+</body>
+</html>
